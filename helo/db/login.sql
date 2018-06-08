@@ -1,2 +1,2 @@
 SELECT * FROM users
-WHERE user_name = $2;
+WHERE user_name = $1 AND password=$2;

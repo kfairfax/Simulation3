@@ -1,13 +1,37 @@
-let initialState={
-    username:'',
-    id:'',
-    profilePic:''
-}
+let initialState = {
+    username: '',
+    id: '',
+    profilePic: ''
+};
 
-export default function reducer(state, action){
+const GET_USER="GET_USER";
+
+export default function reducer(state = initialState, action) {
     switch (action.type) {
-        // case DEFAULT:
+        case GET_USER:
+        return Object.assign({}, state, {
+            id: action.payload.id, 
+            username: action.payload.username, 
+            profilePic: action.payload.profilePic
+        })
+
         default:
-            return state;
+            return state
     }
 }
+
+export function getUser(user) {
+    return {
+        type: GET_USER,
+        payload: {
+            id: user.id,
+            username: user.username,
+            profilePic: user.profilePic
+        }
+    }
+}
+
+
+
+
+
